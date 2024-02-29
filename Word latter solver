@@ -29,3 +29,5 @@ if start_word not in word_list or end_word not in word_list:
 start_time = time.time()
 ladder = word_ladder()  #what in the bracket is depend on the fuction of word_laddder 
 end_time = time.time()
+
+print("Running time: {:.6f} seconds".format(end_time - start_time))
