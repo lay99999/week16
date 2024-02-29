@@ -18,3 +18,14 @@ def find_neighbours(word,word_list):
 with open("words_alpha.txt", 'r') as file:
   list_of_words = file.read().splitlines()
 
+
+
+#finally
+start_word = input("start word:")
+end_word = input("end word:")
+if start_word not in word_list or end_word not in word_list:
+    print("words are not in the word list.")
+    return
+start_time = time.time()
+ladder = word_ladder()  #what in the bracket is depend on the fuction of word_laddder 
+end_time = time.time()
