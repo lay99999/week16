@@ -1,1 +1,5 @@
+import time
+
+with open("words_alpha.txt", 'r') as file:
+  list_of_words = file.read().splitlines()
 
