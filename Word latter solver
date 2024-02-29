@@ -1,6 +1,6 @@
 import time
 
-def find_numbers(word,word_list):
+def find_neighbours(word,word_list):
     list_of_neighbours = []
     for sample_word in word_list:
         if len(sample_word) != len(word):
