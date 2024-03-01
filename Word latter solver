@@ -1,5 +1,6 @@
 import time
 
+
 def find_neighbours(word,word_list):
     list_of_neighbours = []
     for sample_word in word_list:
@@ -14,11 +15,9 @@ def find_neighbours(word,word_list):
             if count == 1:
                 list_of_neighbours.append(sample_word)
     return list_of_neighbours
-                
-with open("words_alpha.txt", 'r') as file:
-  list_of_words = file.read().splitlines()
 
-def word_ladder(start_word, end_word, word_list):
+
+def word_ladder(start_word, end_word):
   if start_word == end_word:
     return [start_word]
 
@@ -30,26 +29,33 @@ def word_ladder(start_word, end_word, word_list):
     if word == end_word:
       return path
     visited.add(word)
-    neighbours = find_neighbours(word, word_list)
+    neighbours = find_neighbours(word, list_of_words)
     for neighbour in neighbours:
       if neighbour not in visited:
         queue.append((neighbour, path + [neighbour]))
 
   return None
 
+
+with open("words_alpha.txt", 'r') as file:
+  list_of_words = file.read().splitlines()
+
+
 #finally
 start_word = input("start word:")
 end_word = input("end word:")
 
+
 #check if the input words are in word_list
-if start_word not in word_list or end_word not in word_list:
+if start_word not in list_of_words or end_word not in list_of_words:
     print("words are not in the word list.")
-    return
+
 
 # Measure the running time of the search algorithm
 start_time = time.time()
 ladder = word_ladder(start_word,end_word)
 end_time = time.time()
+
 
 #show the outputs
 if ladder:
