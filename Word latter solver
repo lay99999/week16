@@ -18,7 +18,24 @@ def find_neighbours(word,word_list):
 with open("words_alpha.txt", 'r') as file:
   list_of_words = file.read().splitlines()
 
+def word_ladder(start_word, end_word, word_list):
+  if start_word == end_word:
+    return [start_word]
 
+  visited = set()
+  queue = [(start_word, [start_word])]
+
+  while queue:
+    word, path = queue.pop(0)
+    if word == end_word:
+      return path
+    visited.add(word)
+    neighbours = find_neighbours(word, word_list)
+    for neighbour in neighbours:
+      if neighbour not in visited:
+        queue.append((neighbour, path + [neighbour]))
+
+  return None
 
 #finally
 start_word = input("start word:")
